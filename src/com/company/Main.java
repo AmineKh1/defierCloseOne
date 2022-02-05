@@ -3,7 +3,7 @@ package com.company;
 import java.util.*;
 
 public class Main {
-    static int distance(Enfants enfant, Box box)
+    static double distance(Enfants enfant, Box box)
     {
         int xD;
         int yD;
@@ -15,12 +15,13 @@ public class Main {
         if (yD < 0){
             yD = yD * -1;
         }
-        return xD + yD;
+
+        return Math.sqrt((xD * xD) + (yD+ yD));
     }
     static Box closeBox(Enfants e, Collection<Box> boxs)
     {
         Box b = null;
-        Collection<Integer> distColl = new HashSet<Integer>();
+        Collection<Double> distColl = new HashSet<Double>();
         for (Box box: boxs) {
             distColl.add(distance(e,box));
             if(Collections.min(distColl) == distance(e, box))
